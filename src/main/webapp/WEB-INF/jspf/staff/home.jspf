@@ -1,0 +1,33 @@
+<%@ page pageEncoding="UTF-8" %>
+<div class="tab-pane fade" id="home">
+  <%--Dynamically generates appropriate greeting based on time of day--%> <%
+  java.util.Calendar cal = java.util.Calendar.getInstance(); int hour =
+  cal.get(java.util.Calendar.HOUR_OF_DAY); String greeting = ""; if (hour >= 4
+  && hour < 11) { greeting = "Chào buổi sáng"; } else if (hour >= 11 && hour <
+  14) { greeting = "Chào buổi trưa"; } else if (hour >= 14 && hour < 18) {
+  greeting = "Chào buổi chiều"; } else { greeting = "Chào buổi tối"; } %>
+  <p class="fw-bolder fs-3 mb-4"><%= greeting %>, ${StaffName}!</p>
+
+  <!-- Daily statistics -->
+  <%@ include file="components/todayview.jspf" %>
+
+  <!-- First row -->
+  <div class="col-12 d-flex flex-row flex-wrap flex-between-center gap-3">
+    <div class="flex-grow-1 col-7 flex-lg-grow-0 p-4 shadow rounded-4 bg-white">
+      <!-- Revenue chart by food category -->
+      <%@ include file="components/chartDailyRevenueByFoodCategory.jspf" %>
+    </div>
+    <div class="p-4 flex-grow-1 shadow rounded-4 bg-white align-self-stretch">
+      <!-- Top 5 most selling foods -->
+      <%@ include file="components/tableTopSellingFoods.jspf" %>
+    </div>
+    <div class="col-12 col-lg-6 p-4 shadow rounded-4 bg-white">
+      <!-- Week revenue chart by day -->
+      <%@ include file="components/chartRevenueByDay.jspf" %>
+    </div>
+    <div class="p-4 col-4 flex-fill shadow rounded-4 bg-white">
+      <!-- Monthly target chart -->
+      <%@ include file="components/chartMonthlyTarget.jspf" %>
+    </div>
+  </div>
+</div>

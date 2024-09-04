@@ -1,0 +1,8 @@
+pandas
+scikit-learn 
+curl-cffi
+uvicorn
+fastapi
+nest_asyncio
+python-dotenv
+requests
