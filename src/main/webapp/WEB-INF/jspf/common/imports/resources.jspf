@@ -2,12 +2,12 @@
 <%@ page pageEncoding="UTF-8" %>
 
 <!-- Favicons -->
-<link href="<%= request.getContextPath() + " assets/img/favicons/apple-touch-icon.png"%>" rel="apple-touch-icon" sizes="180x180">
-<link href="<%= request.getContextPath() + " assets/img/favicons/favicon-32x32.png"%>" rel="icon" type="image/png" sizes="32x32">
-<link href="<%= request.getContextPath() + " assets/img/favicons/favicon-16x16.png"%>" rel="icon" type="image/png" sizes="16x16">
-<link href="<%= request.getContextPath() + " assets/img/favicons/favicon.ico"%>" rel="shortcut icon" type="image/x-icon">
-<link href="<%= request.getContextPath() + " assets/img/favicons/manifest.json"%>" rel="manifest">
-<meta name="msapplication-TileImage" content="<%= request.getContextPath() + "assets/img/favicons/mstile-150x150.png"%>">
+<link href="<%= request.getContextPath() + " assets/img/favicons/sample.png"%>" rel="apple-touch-icon" sizes="180x180">
+<link href="<%= request.getContextPath() + " assets/img/favicons/sample.png"%>" rel="icon" type="image/png" sizes="32x32">
+<link href="<%= request.getContextPath() + " assets/img/favicons/sample.png"%>" rel="icon" type="image/png" sizes="16x16">
+<link href="<%= request.getContextPath() + " assets/img/favicons/sample.png"%>" rel="shortcut icon" type="image/x-icon">
+<link href="<%= request.getContextPath() + " assets/img/favicons/sample.json"%>" rel="manifest">
+<meta name="msapplication-TileImage" content="<%= request.getContextPath() + "assets/img/favicons/sample.png"%>">
 <meta name="theme-color" content="#ffffff">
 
 <!-- Stylesheets -->

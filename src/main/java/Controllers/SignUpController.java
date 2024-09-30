@@ -119,7 +119,7 @@ public class SignUpController extends HttpServlet {
                         props.put("mail.smtp.port", "465");
                         Session mailSession = Session.getInstance(props, new javax.mail.Authenticator() {
                             protected PasswordAuthentication getPasswordAuthentication() {
-                                return new PasswordAuthentication("ffood.shop.cantho@gmail.com", "xhwjyflpdsgeizzr"); // Put your email ID and password here
+                                return new PasswordAuthentication("healthy.plus.fpt@gmail.com", "gazquwjuvowiqbmy"); // Put your email ID and password here
                             }
                         });
 
@@ -129,7 +129,7 @@ public class SignUpController extends HttpServlet {
                             message.setFrom(new InternetAddress("your-email@example.com")); // Change accordingly
                             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
                             message.setSubject("Xác nhận Email của bạn");
-                            message.setContent("Mã OTP của bạn là: " + otpvalue + ".<br />Để tránh mất tài khoản, đừng chia sẻ mã này cho bất cứ ai khác.", "text/html; charset=UTF-8");
+                            message.setContent("Mã OTP của bạn là: " + otpvalue + "<br />Để tránh mất tài khoản, đừng chia sẻ mã này cho bất cứ ai khác.", "text/html; charset=UTF-8");
 
                             // Send message
                             Transport.send(message);
@@ -147,6 +147,7 @@ public class SignUpController extends HttpServlet {
                     }
 
                 } catch (IOException e) {
+                    System.out.println("Come Home");
                   session.setAttribute("toastMessage", "error-register");
                     response.sendRedirect("/");
                 }

@@ -42,7 +42,7 @@
                                             style="font-size: 1.2rem">
                                             40.000 đ
                                         </span>
-                                        <span id="food-discount" class="badge bg-success mt-2 mt-sm-0 px-3 py-2 fs-0">
+                                        <span id="food-discount" class="badge bg-discount mt-2 mt-sm-0 px-3 py-2 fs-0">
                                             Giảm 10%
                                         </span>
                                     </div>
@@ -154,24 +154,23 @@
                 modal.find("#food-discount").text("").addClass("d-none");
             }
 
-
-            modal.find("#food-description").html("Đang cập nhật mô tả...");
-            // Fetch the description via the fetch API
-            fetch(`http://localhost:8123/generate_description/?food_name=` + foodName)
-                .then((response) => response.json())
-                .then((data) => {
-                    if (data.description) {
-                        foodDescription = data.description;
-                    } else {
-                        foodDescription = "Description not available.";
-                    }
-                    modal.find("#food-description").html(foodDescription);
-                })
-                .catch((error) => {
-                    console.error("Error fetching description:", error);
-                    foodDescription = "Description not available.";
-                    modal.find("#food-description").html(foodDescription);
-                });
+            modal.find("#food-description").html(foodDescription);
+//            // Fetch the description via the fetch API
+//            fetch(`http://localhost:8123/generate_description/?food_name=` + foodName)
+//                .then((response) => response.json())
+//                .then((data) => {
+//                    if (data.description) {
+//                        foodDescription = data.description;
+//                    } else {
+//                        foodDescription = "Description not available.";
+//                    }
+//                    modal.find("#food-description").html(foodDescription);
+//                })
+//                .catch((error) => {
+//                    console.error("Error fetching description:", error);
+//                    foodDescription = "Description not available.";
+//                    modal.find("#food-description").html(foodDescription);
+//                });
 
 
             // Disables (but still shows) quantity input group if the food is out of stock/unavailable

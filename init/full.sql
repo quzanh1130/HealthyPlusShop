@@ -372,60 +372,60 @@ insert into FoodType (food_type) values (N'Combo thể thao');
 
 -- Ensure food_id starts from 1
 dbcc checkident (Food, RESEED, 0);
--- Noodle
+
+-- Traditional Seed Powder Milk
 insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url) 
-values (1, N'Bột sữa hạt đậu truyền thống','Bột sữa hạt đậu truyền thống là loại bột sữa hạt pha trộn giữa các loại đậu dễ tìm thấy ở miền nam Việt Nam, bao gồm hạt đậu xanh, đậu đỏ, bắp. gạo ... mang lại dinh dưỡng đầy đủ và phù hợp cho 1 buổi sáng tràn đầy năng lượng.', 40000, 30, 1, 5, 0, 'https://i.postimg.cc/xjxXtRm6/category-1-1.jpg');
+values (1, N'Bột sữa hạt truyền thống', N'Bột sữa hạt truyền thống là sự kết hợp của các loại đậu và ngũ cốc thông thường như đậu xanh, đậu đỏ và hạt gạo. Đây là loại sữa bột giàu dinh dưỡng, dễ tiêu hóa và phù hợp cho bữa sáng dinh dưỡng.', 40000, 30, 1, 5, 0, 'https://i.postimg.cc/xjxXtRm6/category-1-1.jpg');
 insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url) 
-values (1, N'Bột sữa hạt ngũ cốc truyền thống','Bột sữa hạt ngũ cốc truyền thống là loại bột sữa hạt được pha trộn giữa các loại hạt ngũ cốc dồi giàu dinh dưỡng, tốt cho sức khỏe bao gồm hạt gạo, ngũ cốc, mè.', 50000, 40, 1, 5, 5, 'https://i.postimg.cc/zvBVqLsw/category-1-2.jpg');
+values (1, N'Bột sữa ngũ cốc truyền thống', N'Sữa bột ngũ cốc là sự hòa quyện giữa các loại ngũ cốc lành mạnh như gạo, đậu và mè, mang đến nguồn dinh dưỡng đầy đủ.', 42000, 35, 1, 5, 0, 'https://i.postimg.cc/zvBVqLsw/category-1-2.jpg');
 
--- Banh - Banh Mi
-insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
-VALUES (2, N'Bánh bèo','Bánh bèo là món ăn truyền thống Việt Nam, như những chiếc lá xanh từ trời xuống. Chúng mềm mịn như lòng tim, được trang trí bằng hành phi và tôm khô. Bánh bèo, một hương vị của miền Trung.', 25000, 50, 1, 5, 10, 'https://i.postimg.cc/j5qjhwSV/category-2-1.png');
-insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
-VALUES (2, N'Bánh bột lọc','Bánh bột lọc - một món đặc sản miền Trung, chiếc bánh nhỏ xinh, trong vỏ mỏng, dẻo ngon, được nhồi nhét với tôm, thịt heo và nước mắm thơm lừng.', 25000, 30, 1, 5, 0, 'https://i.postimg.cc/658ySvLt/category-2-2.jpg');
+-- Maca Seed Powder Milk
+insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url) 
+values (2, N'Bột sữa hạt Maca', N'Bột sữa hạt Maca là sự pha trộn giữa bột hạt Maca và các loại hạt khác, mang lại nguồn dinh dưỡng quý giá từ Peru, giúp tăng cường sức khỏe và nâng cao khả năng tập trung.', 50000, 40, 1, 5, 5, 'https://i.postimg.cc/zvBVqLsw/category-1-2.jpg');
+insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url) 
+values (2, N'Bột sữa hạt Maca mật ong', N'Sữa bột hạt Maca kết hợp với mật ong tự nhiên, mang lại vị ngọt thanh và giàu dinh dưỡng, giúp phục hồi năng lượng.', 53000, 30, 1, 5, 10, 'https://i.postimg.cc/j5qjhwSV/category-2-1.png');
 
--- Sea Food
--- Chèn các món ăn vào cơ sở dữ liệu với giá ngẫu nhiên tương ứng với thị trường ở Việt Nam
+-- Walnut Seed Powder Milk
 insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
-VALUES (3, N'Cá kho tộ','Cá kho tộ là một món ăn truyền thống của Việt Nam, được làm từ cá kho với nước mắm, đường, hành, tỏi và ớt. Món ăn có vị đậm đà, ngọt ngào và cay cay, thường được ăn với cơm trắng và rau sống.', 80000, 10, 1, 5, 0, 'https://i.postimg.cc/25DyVXpS/category-3-1.jpg');
+VALUES (3, N'Bột sữa hạt óc chó', N'Bột sữa hạt óc chó giàu axit béo omega-3, giúp tăng cường sức khỏe tim mạch và là lựa chọn tuyệt vời cho người đang theo chế độ ăn uống cân bằng.', 60000, 50, 1, 5, 10, 'https://i.postimg.cc/j5qjhwSV/category-2-1.png');
 insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
-VALUES (3, N'Sashimi','Sashimi là món hải sản tươi sống cắt thành lát mỏng, thường là cá hoặc hải sản khác, được phục vụ không cần nấu chín, thường kèm theo muối, rau sống và wasabi.', 120000, 20, 1, 5, 0, 'https://i.postimg.cc/FKVRcgmg/category-3-2.jpg');
+VALUES (3, N'Bột sữa hạt óc chó cacao', N'Bột sữa hạt óc chó cacao có vị béo của óc chó và hương vị thơm ngọt của cacao tự nhiên, bổ sung năng lượng nhanh chóng.', 62000, 40, 1, 5, 5, 'https://i.postimg.cc/658ySvLt/category-2-2.jpg');
 
--- Mon an truyen thong
+-- Almond Seed Powder Milk
 insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
-VALUES (4, N'Cao lầu','Cao lầu là một món ăn đặc trưng của Hội An, gồm mì trộn nước sốt, thịt xá xíu, rau thơm và bánh phồng giòn. Món ăn có hương vị đậm đà, ngọt thanh và thơm mùi nước mắm.', 55000, 20, 1, 5, 0, 'https://i.postimg.cc/dtgLKV4d/category-4-1.jpg');
+VALUES (4, N'Bột sữa hạnh nhân', N'Bột sữa hạt hạnh nhân giàu vitamin E, chất xơ và chất chống oxy hóa, giúp nuôi dưỡng làn da và tăng cường hệ miễn dịch.', 55000, 40, 1, 5, 0, 'https://i.postimg.cc/658ySvLt/category-2-2.jpg');
 insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
-VALUES (4, N'Cháo lòng','Chào bạn, cháo lòng là một món ăn truyền thống của Việt Nam, được làm từ gạo và các bộ phận nội tạng của lợn, như tim, gan, ruột, phổi, thận, v.v. Cháo lòng có vị ngọt, béo, thơm và đậm đà, thường được ăn kèm với bánh quẩy giòn rụm hoặc rau sống. Cháo lòng là món ăn lý tưởng cho những ngày se lạnh hoặc khi bạn cần bổ sung năng lượng.', 40000, 15, 0, 5, 20, 'https://i.postimg.cc/RVJZGz40/category-4-2.jpg');
+VALUES (4, N'Bột sữa hạnh nhân vanilla', N'Sữa bột hạnh nhân vanilla mang hương vị ngọt ngào, tinh tế của vanilla cùng lợi ích dinh dưỡng từ hạnh nhân.', 57000, 35, 1, 5, 5, 'https://i.postimg.cc/25DyVXpS/category-3-1.jpg');
 
--- Mon an chau a
+-- Wheat Seed Powder Milk
 insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
-VALUES (5, N'Pad Thai','Pad Thai - món mì hấp dẫn từ Thái Lan, nổi tiếng với sự hòa quyện của mì xốt tương đậm đà, hòa quyện với hương vị ngọt ngào của tôm, thịt, và rau thơm tươi.', 60000, 30, 1, 5, 15, 'https://i.postimg.cc/26HS9k11/category-5-1.png');
+VALUES (5, N'Bột sữa hạt lúa mì', N'Bột sữa hạt lúa mì là nguồn dinh dưỡng dồi dào cung cấp năng lượng cho cơ thể, thích hợp cho bữa ăn sáng đầy đủ chất xơ và khoáng chất.', 45000, 20, 1, 5, 0, 'https://i.postimg.cc/25DyVXpS/category-3-1.jpg');
 insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
-VALUES (5, N'Takoyaki','Takoyaki là món ăn Nhật nổi tiếng, chiếc bánh tròn tròn, giòn mềm, bên trong có một mẩu takoyaki xanh xanh thơm ngon. Chỉ cần nhắm mắt và thưởng thức, bạn sẽ cảm nhận được hương vị trọn vẹn của Nhật Bản.', 55000, 28, 0, 5, 0, 'https://i.postimg.cc/mZ5rQrxq/catgory-5-2.jpg');
+VALUES (5, N'Bột sữa lúa mì mật ong', N'Bột sữa lúa mì kết hợp cùng mật ong tạo nên vị ngọt dịu, cung cấp năng lượng cho cả ngày dài hoạt động.', 47000, 25, 1, 5, 0, 'https://i.postimg.cc/FKVRcgmg/category-3-2.jpg');
 
--- Mon Thit
+-- Peanut Seed Powder Milk
 insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
-VALUES (6, N'Beef Carpaccio','Món bò Carpaccio là thịt bò siêu mỏng, ướp sốt hành tây, chanh và phô mai. Thường được thêm rau sống và bánh mỳ nướng.', 65000, 25, 1, 5, 5, 'https://i.postimg.cc/mZ5rQrxq/catgory-5-2.jpg');
+VALUES (6, N'Bột sữa hạt đậu phộng', N'Bột sữa hạt đậu phộng là loại sữa bột giàu protein và vitamin B6, giúp hỗ trợ quá trình phát triển cơ bắp và sức khỏe tổng quát.', 50000, 35, 1, 5, 0, 'https://i.postimg.cc/FKVRcgmg/category-3-2.jpg');
 insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
-VALUES (6, N'Beef Tartare','Bò tái chanh là một món ăn được làm từ thịt bò sống, thái nhỏ và ướp với chanh, muối, tiêu và các loại gia vị khác. Món ăn có vị chua, mặn, cay và thơm, thường được ăn kèm với bánh mì hoặc rau sống.', 70000, 20, 1, 5, 0, 'https://i.postimg.cc/mZ5rQrxq/catgory-5-2.jpg');
+VALUES (6, N'Bột sữa hạt đậu phộng socola', N'Sữa bột hạt đậu phộng kết hợp với vị socola thơm ngon, mang lại trải nghiệm mới lạ và đầy bổ dưỡng.', 52000, 30, 1, 5, 10, 'https://i.postimg.cc/dtgLKV4d/category-4-1.jpg');
 
--- Mon an nhanh
+-- Black Bean Seed Powder Milk
 insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
-VALUES (7, N'French Fries','Khoai tây chiên là một món ăn được làm từ khoai tây cắt thành những miếng dài và chiên trong dầu nóng. Khoai tây chiên có vị giòn bên ngoài và mềm bên trong, thường được ăn kèm với muối, tương cà hoặc sốt mayonnaise.', 25000, 30, 1, 5, 10, 'https://i.postimg.cc/mZ5rQrxq/catgory-5-2.jpg');
+VALUES (7, N'Bột sữa hạt đậu đen', N'Bột sữa hạt đậu đen giàu chất chống oxy hóa và là nguồn cung cấp chất xơ tốt cho hệ tiêu hóa, giúp thanh lọc cơ thể.', 48000, 25, 1, 5, 0, 'https://i.postimg.cc/dtgLKV4d/category-4-1.jpg');
 insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
-VALUES (7, N'Hot Dog','Hot Dog, hay còn gọi là xúc xích, là một món ăn vỉa hè nổi tiếng trên khắp thế giới. Nó gồm một cái ổ bánh mềm mịn và xúc xích thơm lừng, được thưởng thức trong những bữa ăn nhanh và dễ dàng ăn bằng tay.', 30000, 20, 1, 5, 0, 'https://i.postimg.cc/mZ5rQrxq/catgory-5-2.jpg');
+VALUES (7, N'Bột sữa hạt đậu đen mè đen', N'Kết hợp độc đáo giữa hạt đậu đen và mè đen, giúp cải thiện sức khỏe tổng thể và tốt cho tóc, da.', 50000, 30, 1, 5, 5, 'https://i.postimg.cc/RVJZGz40/category-4-2.jpg');
 
--- Mon an nhe
+-- Diet Combo Seed Powder Milk
 insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
-VALUES (8, N'Caprese Salad','Salad Caprese là một tác phẩm nghệ thuật ẩm thực từ Ý, với cà chua mọng nước, phô mai béo bùi, và lá bạch tuộc thơm mát. Một kết hợp độc đáo, như "bản giao hưởng" của mùa hè!', 35000, 20, 1, 5, 0, 'https://i.postimg.cc/mZ5rQrxq/catgory-5-2.jpg');
+VALUES (8, N'Combo bột sữa hạt ăn kiêng', N'Combo bột sữa hạt ăn kiêng bao gồm sự kết hợp của nhiều loại hạt giảm cân như hạnh nhân, óc chó và hạt chia, giúp hỗ trợ giảm cân an toàn và hiệu quả.', 75000, 30, 1, 5, 15, 'https://i.postimg.cc/mZ5rQrxq/catgory-5-2.jpg');
 insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
-VALUES (8, N'Greek Salad','Salát Hy Lạp là một món ăn nhẹ và tươi mát, gồm rau xanh, cà chua, dưa chuột, hành tím, ô liu đen và phô mai feta. Món salát được nêm với dầu ô liu, giấm và các loại gia vị như oregano và hạt tiêu.', 32000, 30, 1, 5, 10, 'https://i.postimg.cc/mZ5rQrxq/catgory-5-2.jpg');
+VALUES (8, N'Combo bột sữa hạt giảm béo', N'Combo giảm béo đặc biệt được thiết kế cho người ăn kiêng với các loại hạt giàu chất xơ và ít calo.', 78000, 25, 1, 5, 10, 'https://i.postimg.cc/XqjZtTqH/category-5-3.jpg');
 
--- Mon trang mieng
+-- Sports Combo Seed Powder Milk
 insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
-VALUES (9, N'Apple Pie','Bánh táo hấp dẫn với lớp vỏ giòn, nhân táo mềm mịn, hòa quyện với hương thơm quyến rũ của quả quýt và gia vị ấm áp. Thưởng thức ly nào!', 45000, 20, 1, 5, 10, 'https://i.postimg.cc/mZ5rQrxq/catgory-5-2.jpg');
+VALUES (9, N'Combo bột sữa hạt thể thao', N'Combo bột sữa hạt thể thao được thiết kế đặc biệt để cung cấp năng lượng và protein cho các vận động viên, bao gồm các loại hạt giàu dinh dưỡng như đậu phộng, maca và hạt bí.', 80000, 20, 1, 5, 0, 'https://i.postimg.cc/mZ5rQrxq/catgory-5-2.jpg');
 insert into Food (food_type_id, food_name, food_description,food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
-VALUES (9, N'Baklava','Bánh Baklava là một loại bánh ngọt truyền thống từ Trung Đông, có lớp lớp bánh mỏng và giòn, được ướp đầy đủ với phô mai và hạt điều. Một phần ăn ngon không thể bỏ qua!', 55000, 3, 0, 5, 0, 'https://i.postimg.cc/mZ5rQrxq/catgory-5-2.jpg');
+VALUES (9, N'Combo thể thao giàu năng lượng', N'Bổ sung nhiều protein và chất xơ từ đậu phộng, hạt chia, và các loại ngũ cốc, giúp phục hồi năng lượng nhanh chóng.', 83000, 20, 1, 5, 10, 'https://i.postimg.cc/rFZt2QgS/category-5-4.jpg');
 
 -- Payment methods
 insert into PaymentMethod (payment_method) values (N'Thẻ tín dụng');
@@ -434,7 +434,6 @@ insert into PaymentMethod (payment_method) values (N'COD');
 
 -- Order statuses
 insert into OrderStatus (order_status) values (N'Chờ xác nhận');
--- insert into OrderStatus (order_status) values (N'Đang chuẩn bị món');
 insert into OrderStatus (order_status) values (N'Đang giao');
 insert into OrderStatus (order_status) values (N'Đã giao');
 insert into OrderStatus (order_status) values (N'Đã hủy');
@@ -442,7 +441,7 @@ insert into OrderStatus (order_status) values (N'Đã hủy');
 -- Voucher
 insert into Voucher (voucher_name, voucher_code, voucher_discount_percent, voucher_quantity, voucher_status, voucher_date) values ( N'Quốc tế phụ nữ', 'ADASD2FD23123DBE', 30, 15, 0,'20231021 00:01:00 AM' );
 insert into Voucher (voucher_name, voucher_code, voucher_discount_percent, voucher_quantity, voucher_status, voucher_date) values ( N'Khách hàng may mắn', 'BD2128BDYOQM87V7', 20, 10, 0,'20230809 00:01:00 AM');
-insert into Voucher (voucher_name, voucher_code, voucher_discount_percent, voucher_quantity, voucher_status, voucher_date) values ( N'Halloween cùng FFood', 'XDEF39O9YOQM8PPV', 15, 20, 0,'20231101 00:01:00 AM');
+insert into Voucher (voucher_name, voucher_code, voucher_discount_percent, voucher_quantity, voucher_status, voucher_date) values ( N'Halloween cùng Healthy Plus', 'XDEF39O9YOQM8PPV', 15, 20, 0,'20231101 00:01:00 AM');
 insert into Voucher (voucher_name, voucher_code, voucher_discount_percent, voucher_quantity, voucher_status, voucher_date) values ( N'Người đặc biệt', 'DJWOA975N4B92BH6', 50, 3, 1,'20231112 00:01:00 AM' );
 insert into Voucher (voucher_name, voucher_code, voucher_discount_percent, voucher_quantity, voucher_status, voucher_date) values ( N'Ngày Nhà giáo Việt Nam', '9JADYEDYOQM8E7OA', 15, 10, 0,'20231121 00:01:00 AM');
 insert into Voucher (voucher_name, voucher_code, voucher_discount_percent, voucher_quantity, voucher_status, voucher_date) values (N'Quà tặng Noel', 'DUEMAHWOPUNH62GH', 20, 10, 1,'20231223 00:01:00 AM' );
@@ -461,21 +460,21 @@ contact_phone, delivery_address, order_time, order_total,
 order_note, delivery_time, order_cancel_time
 ) values (
 1, 1, 4, 1, 
-'0931278397', N'39 Mậu Thân, Ninh Kiều, Cần Thơ', '20231108 10:49:00 AM', 190000, 
-NULL, '20231108 10:49:00 AM', NULL);
+'0931278397', N'39 Mậu Thân, Ninh Kiều, Cần Thơ', '20240708 10:49:00 AM', 190000, 
+NULL, '20240708 10:49:00 AM', NULL);
 
 insert into Payment (
     order_id, payment_method_id, payment_total, payment_content, payment_bank, payment_code, payment_status, payment_time
 ) values (
-    1,1,190000,N'Thanh toán đơn hàng ffood',N'NCB','14111641',1,'20231108 11:20:00 AM'
+    1,1,190000,N'Thanh toán đơn hàng ffood',N'NCB','14111641',1,'20240708 11:20:00 AM'
 );
 
-update Account set lastime_order = '20231108 10:34:00 AM' where account_id = 201
+update Account set lastime_order = '20240708 10:34:00 AM' where account_id = 201
 
-insert into OrderLog (order_id, staff_id, log_activity, log_time) values (1, 1, N'Cập nhật thông tin đơn hàngg','20231108 10:51:00 AM');
-insert into OrderLog (order_id, staff_id, log_activity, log_time) values (1, 1, N'Cập nhật trạng thái đơn hàng','20231108 11:03:00 AM');
-insert into OrderLog (order_id, staff_id, log_activity, log_time) values (1, 2, N'Cập nhật trạng thái đơn hàng','20231108 11:18:00 AM');
-insert into OrderLog (order_id, staff_id, log_activity, log_time) values (1, 3, N'Cập nhật trạng thái đơn hàng','20231108 11:20:00 AM');
+insert into OrderLog (order_id, staff_id, log_activity, log_time) values (1, 1, N'Cập nhật thông tin đơn hàngg','20240708 10:51:00 AM');
+insert into OrderLog (order_id, staff_id, log_activity, log_time) values (1, 1, N'Cập nhật trạng thái đơn hàng','20240708 11:03:00 AM');
+insert into OrderLog (order_id, staff_id, log_activity, log_time) values (1, 2, N'Cập nhật trạng thái đơn hàng','20240708 11:18:00 AM');
+insert into OrderLog (order_id, staff_id, log_activity, log_time) values (1, 3, N'Cập nhật trạng thái đơn hàng','20240708 11:20:00 AM');
 
 -- Cart, CartItem, Order test data
 insert into Cart (customer_id) values (2);
@@ -491,12 +490,12 @@ contact_phone, delivery_address, order_time, order_total,
 order_note, delivery_time, order_cancel_time
 ) values (
 2, 5, 4, 3, 
-'0931278397', N'39 Mậu Thân, Ninh Kiều, Cần Thơ', '20231108 15:43:00 PM', 215000, 
-NULL, '20231108 15:43:00 PM', NULL);
+'0931278397', N'39 Mậu Thân, Ninh Kiều, Cần Thơ', '20240708 15:43:00 PM', 215000, 
+NULL, '20240708 15:43:00 PM', NULL);
 
-update Account set lastime_order = '20231108 15:43:00 PM' where account_id = 205
+update Account set lastime_order = '20240708 15:43:00 PM' where account_id = 205
 
-insert into OrderLog (order_id, staff_id, log_activity, log_time) values (2, 1, N'Cập nhật trạng thái đơn hàng','20231108 15:50:00 PM');
-insert into OrderLog (order_id, staff_id, log_activity, log_time) values (2, 2, N'Cập nhật trạng thái đơn hàng','20231108 16:05:00 PM');
-insert into OrderLog (order_id, staff_id, log_activity, log_time) values (2, 3, N'Cập nhật trạng thái đơn hàng','20231108 16:20:00 PM');
+insert into OrderLog (order_id, staff_id, log_activity, log_time) values (2, 1, N'Cập nhật trạng thái đơn hàng','20240708 15:50:00 PM');
+insert into OrderLog (order_id, staff_id, log_activity, log_time) values (2, 2, N'Cập nhật trạng thái đơn hàng','20240708 16:05:00 PM');
+insert into OrderLog (order_id, staff_id, log_activity, log_time) values (2, 3, N'Cập nhật trạng thái đơn hàng','20240708 16:20:00 PM');
 

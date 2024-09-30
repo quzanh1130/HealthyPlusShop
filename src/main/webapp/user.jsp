@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Title -->
-      <title>FFood | Tài khoản Người dùng</title>
+      <title>HealthyPlus | Tài khoản Người dùng</title>
       <%@ include file="WEB-INF/jspf/common/imports/resources.jspf" %>
     </head>
 
@@ -33,7 +33,7 @@
                 <li class="nav-item" role="presentation">
                   <button class="nav-link" id="order-tab" data-bs-toggle="tab"
                     data-bs-target="#order" type="button" role="tab" aria-controls="order" aria-checked="false">Đơn
-                    món</button>
+                    hàng</button>
                 </li>
               </ul>
 

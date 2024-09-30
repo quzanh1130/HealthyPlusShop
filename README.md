@@ -34,7 +34,7 @@
   
 
 ## Project ScreenShots:
-  <img align="center" src="cover.png" alt="project-screenshot" >
+  <img align="center" src="cover.jpeg" alt="project-screenshot" >
 
 ## Table of Contents
 

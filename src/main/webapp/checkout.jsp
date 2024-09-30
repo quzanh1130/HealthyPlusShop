@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Title -->
-        <title>FFood | Thanh toán đơn món</title>
+        <title>HealthyPlus | Thanh toán hóa đơn</title>
         <%@ include file="WEB-INF/jspf/common/imports/resources.jspf" %>
         <style>
             .activeError {
@@ -77,7 +77,7 @@
                                 <!-- Hidden - User Account ID -->
                                 <input type="hidden" id="txtAccountID" name="txtAccountID" value="${currentAccount.accountID}"/>
                                 <div class="col-md-12">
-                                    <h4>Thông tin giao món</h4>
+                                    <h4>Thông tin đơn hàng</h4>
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <label for="txtLastName" class="form-label">Họ</label>

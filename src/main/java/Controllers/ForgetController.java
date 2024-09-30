@@ -100,7 +100,7 @@ public class ForgetController extends HttpServlet {
                         props.put("mail.smtp.port", "465");
                         Session mailSession = Session.getInstance(props, new javax.mail.Authenticator() {
                             protected PasswordAuthentication getPasswordAuthentication() {
-                                return new PasswordAuthentication("ffood.shop.cantho@gmail.com", "xhwjyflpdsgeizzr"); // Put your email ID and password here
+                                return new PasswordAuthentication("healthy.plus.fpt@gmail.com", "gazquwjuvowiqbmy"); // Put your email ID and password here
                             }
                         });
 

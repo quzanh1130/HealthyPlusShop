@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>FFood | Admin Dashboard</title>
+        <title>HealthyPlus | Admin Dashboard</title>
         <!-- Locale for JSTL fmt tags -->
         <fmt:setLocale value="vi" scope="session"/>
         <%@ include file="WEB-INF/jspf/common/imports/resources.jspf" %>

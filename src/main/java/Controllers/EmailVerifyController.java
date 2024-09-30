@@ -57,7 +57,9 @@ public class EmailVerifyController extends HttpServlet {
         session.removeAttribute("email");
         session.removeAttribute("type_otp");
         session.removeAttribute("triggerOTP");
+        System.out.println("Clear all");
       }
+      System.out.println("Haha1");
       response.sendRedirect("/");
     } 
 
