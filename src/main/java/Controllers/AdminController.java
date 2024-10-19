@@ -10,6 +10,7 @@ import DAOs.CustomerDAO;
 import DAOs.FoodDAO;
 import DAOs.OrderDAO;
 import DAOs.OrderLogDAO;
+import DAOs.PointDAO;
 import DAOs.PromotionManagerDAO;
 import DAOs.StaffDAO;
 import DAOs.VoucherDAO;
@@ -18,6 +19,7 @@ import Models.Customer;
 import Models.Food;
 import Models.Order;
 import Models.OrderLog;
+import Models.Point;
 import Models.PromotionManager;
 import Models.Role;
 import Models.Staff;
@@ -32,12 +34,22 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+import java.util.Random;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -614,7 +626,7 @@ public class AdminController extends HttpServlet {
         String voucherName = (String) request.getParameter("txtvoucher_name");
         String voucherCode = (String) request.getParameter("txtvoucher_code");
         Byte voucher_discount_percent = Byte.parseByte(request.getParameter("txtvoucher_discount_percent"));
-        Byte voucher_quantity = Byte.parseByte(request.getParameter("txtvoucher_quantity"));
+        int voucher_quantity = Integer.parseInt(request.getParameter("txtvoucher_quantity"));
         Byte voucher_status = Byte.parseByte(request.getParameter("txtvoucher_status"));
         String datetimelocal = request.getParameter("txtvoucher_date");
         Timestamp datetime = Timestamp.valueOf(datetimelocal.replace("T", " ") + ":00");
@@ -650,7 +662,7 @@ public class AdminController extends HttpServlet {
         String voucherName = (String) request.getParameter("txtvoucher_name");
         String voucherCode = (String) request.getParameter("txtvoucher_code");
         Byte voucher_discount_percent = Byte.parseByte(request.getParameter("txtvoucher_discount_percent"));
-        Byte voucher_quantity = Byte.parseByte(request.getParameter("txtvoucher_quantity"));
+        int voucher_quantity = Integer.parseInt(request.getParameter("txtvoucher_quantity"));
         Byte voucher_status = Byte.parseByte(request.getParameter("txtvoucher_status"));
         String datetimelocal = request.getParameter("txtvoucher_date");
         Timestamp datetime = Timestamp.valueOf(datetimelocal.replace("T", " ") + ":00");
@@ -718,15 +730,13 @@ public class AdminController extends HttpServlet {
 
         BigDecimal orderTotalPay = BigDecimal.valueOf(orderTotal);
 
-        byte orderStatusID = 5;
+        byte orderStatusID = 4;
         if (status.equals("Chờ xác nhận")) {
             orderStatusID = 1;
-        } else if (status.equals("Đang chuẩn bị món")) {
-            orderStatusID = 2;
         } else if (status.equals("Đang giao")) {
-            orderStatusID = 3;
+            orderStatusID = 2;
         } else if (status.equals("Đã giao")) {
-            orderStatusID = 4;
+            orderStatusID = 3;
         }
 
         byte paymentMethodID = 3;
@@ -738,12 +748,60 @@ public class AdminController extends HttpServlet {
 
         HttpSession session = request.getSession();
         OrderDAO orderDAO = new OrderDAO();
-        Order order = new Order(orderID, orderStatusID, paymentMethodID, phonenumber, address, note, orderTotalPay);
+        AccountDAO accountDAO = new AccountDAO();
+        Order updateOrder = new Order(orderID, orderStatusID, paymentMethodID, phonenumber, address, note, orderTotalPay);
 
 
-        int result = orderDAO.updateForAdmin(order);
+        int result = orderDAO.updateForAdmin(updateOrder);
         
         if (result >= 1) {
+            if (orderStatusID == 3){
+                Order order = orderDAO.getOrder(orderID);
+                           
+                PointDAO pointDAO = new PointDAO();
+                BigDecimal orderTotalz = orderTotalPay;
+                BigDecimal pointValue = new BigDecimal(50000); // 50,000 as a BigDecimal
+
+                // Calculate the points by dividing the total by 50,000 and then converting to an integer
+                int pointNumber = orderTotalz.divide(pointValue, 0, RoundingMode.DOWN).intValue(); // Rounding down to avoid fractions of points
+                
+                Point newPoint = new Point();
+                newPoint.setCustomer_id(order.getCustomerID());
+                newPoint.setPoint(pointNumber);
+                Point point = pointDAO.getPoint(order.getCustomerID());
+                
+                int customer_id = order.getCustomerID();
+                String email = accountDAO.getEmail(customer_id);
+
+                 if (pointNumber == 300 ) {
+                        String to = email; // Change accordingly
+                        String text = "Chào bạn,\n" +
+                                "\n" +
+                                "\"Xin chúc mừng! Bạn đã tích đủ 300 điểm để đổi thưởng. Phần thưởng của bạn là 1 phần combo bất kỳ. Vui lòng liên hệ với chúng tôi để nhận thưởng và biết thêm chi tiết.\"\n" +
+                                "\n" +
+                                "Trân trọng,  \n" +
+                                "Healthy Plus Shop";                     
+                        sendEmailMessage(to, text);
+                } else if (pointNumber == 500) {
+                    String to = email; // Change accordingly
+                     String text = "Chào bạn,\n" +
+                            "\n" +
+                            "\"Xin chúc mừng! Bạn đã tích đủ 500 điểm để đổi thưởng. Phần thưởng của bạn là 3 phần combo bất kỳ. Vui lòng liên hệ với chúng tôi để nhận thưởng và biết thêm chi tiết.\"\n" +
+                            "\n" +
+                            "Trân trọng,  \n" +
+                            "Healthy Plus Shop";
+                    sendEmailMessage(to, text);
+                }
+                
+                if (point != null){
+                    System.out.println("Update");
+                    pointDAO.updatePoint(newPoint);
+                } else {
+                    System.out.println("Add");
+                    pointDAO.add(newPoint);
+                }
+            }
+            
             OrderLogDAO logDAO = new OrderLogDAO();
             LocalDateTime currentTime = LocalDateTime.now();
             Timestamp logTime = Timestamp.valueOf(currentTime);
@@ -751,7 +809,7 @@ public class AdminController extends HttpServlet {
             OrderLog log = new OrderLog(orderID, "Cập nhật thông tin đơn hàng", logTime);
             log.setAdmin_id(adminID);
             logDAO.addAdminLog(log);
-            if (orderStatusID == 5) {
+            if (orderStatusID == 4) {
                 OrderLog logStatusOrder = new OrderLog(orderID, "Hủy đơn hàng", logTime);
                 logStatusOrder.setAdmin_id(adminID);
                 logDAO.addAdminLog(logStatusOrder);
@@ -807,6 +865,37 @@ public class AdminController extends HttpServlet {
         }
     }
     
+    private void sendEmailMessage(String to, String text){
+        // Get the session object
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.socketFactory.port", "465");
+        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.port", "465");
+        Session mailSession = Session.getInstance(props, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication("healthy.plus.fpt@gmail.com", "gazquwjuvowiqbmy"); // Put your email ID and password here
+            }
+        });
+
+        // Compose message
+        try {
+            MimeMessage message = new MimeMessage(mailSession);
+            message.setFrom(new InternetAddress("your-email@example.com")); // Change accordingly
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            message.setSubject("[Healthy Plus] Chúc mừng bạn đã đạt được mốc thưởng");
+              
+            message.setContent(text,"text/html; charset=UTF-8");
+
+            // Send message
+            Transport.send(message);
+            System.out.println("Message sent successfully");
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
     // update status of list of order to next status
     private void doPostNextOrder(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -822,12 +911,66 @@ public class AdminController extends HttpServlet {
 
         // Delete each food item, and count deleted items
         HttpSession session = request.getSession();
-        OrderDAO dao = new OrderDAO();
-        int result = dao.changeStatusMultiple(orderIDList);
-
+        OrderDAO orderDao = new OrderDAO();
+        AccountDAO accountDAO = new AccountDAO();
+        int result = orderDao.changeStatusMultiple(orderIDList);
         
         // Redirect or forward to another page if necessary
         if (result >= 1) {
+            
+            for (Integer orderID : orderIDList) {
+                Order order = orderDao.getOrder(orderID);
+                byte orderStatusID = order.getOrderStatusID();
+                
+                System.out.println("orderStatusID Now " +  orderStatusID);
+                if (orderStatusID == 3){
+
+                    PointDAO pointDAO = new PointDAO();
+                    BigDecimal orderTotalz = order.getOrderTotal();
+                    BigDecimal pointValue = new BigDecimal(50000); // 50,000 as a BigDecimal
+
+                    // Calculate the points by dividing the total by 50,000 and then converting to an integer
+                    int pointNumber = orderTotalz.divide(pointValue, 0, RoundingMode.DOWN).intValue(); // Rounding down to avoid fractions of points
+
+                    System.out.println("Received Customer ID " + order.getCustomerID());
+                    Point newPoint = new Point();
+                    newPoint.setCustomer_id(order.getCustomerID());
+                    newPoint.setPoint(pointNumber);                  
+                    
+                    int customer_id = order.getCustomerID();
+                    String email = accountDAO.getEmail(customer_id);
+                    
+                    if (pointNumber == 300 ) {
+                        String to = email; // Change accordingly
+                        String text = "Chào bạn,\n" +
+                                "\n" +
+                                "\"Xin chúc mừng! Bạn đã tích đủ 300 điểm để đổi thưởng. Phần thưởng của bạn là 1 phần combo bất kỳ. Vui lòng liên hệ với chúng tôi để nhận thưởng và biết thêm chi tiết.\"\n" +
+                                "\n" +
+                                "Trân trọng,  \n" +
+                                "Healthy Plus Shop";                     
+                        sendEmailMessage(to, text);
+                    } else if (pointNumber == 500) {
+                        String to = email; // Change accordingly
+                         String text = "Chào bạn,\n" +
+                                "\n" +
+                                "\"Xin chúc mừng! Bạn đã tích đủ 500 điểm để đổi thưởng. Phần thưởng của bạn là 3 phần combo bất kỳ. Vui lòng liên hệ với chúng tôi để nhận thưởng và biết thêm chi tiết.\"\n" +
+                                "\n" +
+                                "Trân trọng,  \n" +
+                                "Healthy Plus Shop";
+                        sendEmailMessage(to, text);
+                    }
+                    
+                    
+                    if (pointDAO.getPoint(order.getCustomerID()) != null){
+                        System.out.println("Update");
+                        pointDAO.updatePoint(newPoint);
+                    } else {
+                        System.out.println("Add");
+                        pointDAO.add(newPoint);
+                    }
+                }
+            }
+            
             OrderLogDAO logDAO = new OrderLogDAO();
             LocalDateTime currentTime = LocalDateTime.now();
             byte adminID = (byte) session.getAttribute("adminID");

@@ -32,9 +32,9 @@
      data-navbar-on-scroll="data-navbar-on-scroll">
     <div class="container">
         <a class="navbar-brand d-inline-flex me-0" href="/">
-            <img class="d-inline-block" src="<%= request.getContextPath() + " assets/img/gallery/logo.svg"%>"
+            <img class="d-inline-block" src="<%= request.getContextPath() + " assets/img/gallery/avt.svg"%>"
                  alt="logo"/>
-            <span class="text-1000 fs-3 fw-bold ms-2 text-gradient notranslate">FFood</span>
+            <span class="text-1000 fs-3 fw-bold ms-2 text-gradient notranslate">HealthyPlus</span>
         </a>
         <div class="flex-grow-1"></div>
 

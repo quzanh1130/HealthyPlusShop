@@ -67,7 +67,7 @@ public class HomeController extends HttpServlet {
         FoodTypeDAO foodTypeDAO = new FoodTypeDAO();
         List<FoodType> foodTypeList = new ArrayList<>();
         foodTypeList = foodTypeDAO.getAllFoodType();
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 4; i++) {
             foodTypeList.get(i).setImgURL(imgURLList.get(i));
         }
         request.setAttribute("foodTypeList", foodTypeList);

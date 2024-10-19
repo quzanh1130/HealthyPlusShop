@@ -7,7 +7,7 @@
      id="minimizedSidebar" aria-labelledby="minimizedSidebarLabel">
   <a href="/" style="height: 3rem"
      class="d-flex align-items-center py-2 my-3 mx-auto link-body-emphasis text-decoration-none">
-    <img class="d-inline-block img-fluid" src="<%= request.getContextPath() + "assets/img/gallery/logo.svg"%>"
+    <img class="d-inline-block img-fluid" src="<%= request.getContextPath() + "assets/img/gallery/avt.svg"%>"
          alt="logo"/>
   </a>
   <ul class="nav nav-pills d-grid gap-1 align-items-center mb-auto">
@@ -55,9 +55,9 @@
      id="maximizedSidebar" aria-labelledby="maximizedSidebarLabel">
   <a href="/" style="height: 2.5rem;"
      class="d-flex flex-row align-items-start justify-content-center px-2 ms-1 me-auto my-3 link-body-emphasis text-decoration-none">
-    <img class="img-fluid my-auto" src="<%= request.getContextPath() + "assets/img/gallery/logo.svg"%>"
+    <img class="img-fluid my-auto" src="<%= request.getContextPath() + "assets/img/gallery/avt.svg"%>"
          alt="logo"/>
-    <h5 class="ms-3 my-auto text-gradient">FFood Dashboard</h5>
+    <h5 class="ms-3 my-auto text-gradient">HealthyPlus Dashboard</h5>
   </a>
   <ul class="nav nav-pills d-grid gap-1 mb-auto align-content-start">
     <li class="nav-item d-grid gap-1 px-1">

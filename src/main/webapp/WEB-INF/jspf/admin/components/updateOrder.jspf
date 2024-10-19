@@ -35,7 +35,6 @@
                         <label for="txtOrderStatus" class="form-label">Trạng thái</label>
                         <select class="form-select" name="txtOrderStatus" id="txtOrderStatus" required>
                             <option value="Chờ xác nhận">Chờ xác nhận</option>
-                            <option value="Đang chuẩn bị món">Đang chuẩn bị món</option>
                             <option value="Đang giao">Đang giao</option>
                             <option value="Đã giao">Đã giao</option>
                             <option value="Đã hủy">Đã hủy</option>

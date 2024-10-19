@@ -31,6 +31,7 @@ public class OrderDAO {
         conn = DBConnection.getConnection();
     }
 
+    
     public void insertOrderStatusNotCFYet(Cart cart) {
         try {
             String sql = "INSERT INTO [dbo].[Order] ([cart_id], [customer_id], [order_status_id], [payment_method_id], [contact_phone], [delivery_address], [order_time], [order_total], [order_note], [delivery_time], [order_cancel_time]) VALUES (?, 1, 1, 1, 0, 'NULL', GETDATE(), ?, null, null, null)";
@@ -44,6 +45,7 @@ public class OrderDAO {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
 
     public List<Order> getAllList() {
         ResultSet orderRS = this.getAll();
@@ -72,6 +74,7 @@ public class OrderDAO {
         }
         return orderList;
     }
+    
 
     public Order getOrder(int orderID) {
         Order order = null;
@@ -80,28 +83,32 @@ public class OrderDAO {
             ps.setInt(1, orderID);
             rs = ps.executeQuery();
             if (rs.next()) {
+                System.out.println("payment_method_id " + rs.getByte("payment_method_id"));
                 order = new Order(
                         rs.getInt("order_id"),
-                        rs.getInt("cart_id"),
+//                        rs.getInt("cart_id"),
                         rs.getInt("customer_id"),
                         rs.getByte("order_status_id"),
-                        this.getOrderStatus(rs.getByte("order_status_id")),
-                        rs.getByte("payment_method_id"),
-                        this.getPaymentMethod(rs.getByte("payment_method_id")),
-                        rs.getString("contact_phone"),
-                        rs.getString("delivery_address"),
-                        this.getOrderItemsList(rs.getInt("cart_id")),
-                        rs.getBigDecimal("order_total"),
-                        rs.getTimestamp("order_time"),
-                        rs.getString("order_note"),
-                        rs.getTimestamp("delivery_time"),
-                        rs.getTimestamp("order_cancel_time"));
+//                        this.getOrderStatus(rs.getByte("order_status_id")),
+//                        rs.getByte("payment_method_id"),
+//                        this.getPaymentMethod(rs.getByte("payment_method_id")),
+//                        rs.getString("contact_phone"),
+//                        rs.getString("delivery_address"),
+//                        this.getOrderItemsList(rs.getInt("cart_id")),
+                        rs.getBigDecimal("order_total")
+//                        rs.getTimestamp("order_time"),
+//                        rs.getString("order_note"),
+//                        rs.getTimestamp("delivery_time"),
+//                        rs.getTimestamp("order_cancel_time")
+                );
+                System.out.println(" FUCCKCKKCK " + order.getCustomerID());
             }
         } catch (SQLException ex) {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return order;
     }
+    
 
     public ResultSet getOrdersFromCustomer(int customerID) {
         String sql = "select * from [Order] where customer_id = ?";
@@ -115,6 +122,7 @@ public class OrderDAO {
         }
         return null;
     }
+    
 
     public List<Order> getOrdersFromCustomerList(int customerID) {
         System.out.println("customerID: " + customerID);
@@ -145,6 +153,7 @@ public class OrderDAO {
         }
         return orderList;
     }
+    
 
     public ResultSet getAll() {
         String sql = "SELECT * FROM [Order]";
@@ -157,6 +166,7 @@ public class OrderDAO {
         }
         return null;
     }
+    
 
     public int add(Order order) {
         String sql = "INSERT INTO [Order] (cart_id, customer_id, order_status_id, payment_method_id, contact_phone, delivery_address, order_total, order_time, order_note, delivery_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -180,6 +190,7 @@ public class OrderDAO {
         }
         return result;
     }
+    
 
     public int update(Order order) {
         String sql = "UPDATE [Order] SET cart_id = ?, customer_id = ?, order_status_id = ?, payment_method_id = ?, contact_phone = ?, delivery_address = ?, order_total = ?, order_time = ?, order_note = ?, delivery_time = ?, order_cancel_time = ? WHERE order_id = ?";
@@ -205,6 +216,7 @@ public class OrderDAO {
         return result;
     }
     
+    
     public int updateForAdmin(Order order) {
         String sql = "UPDATE [Order] SET order_status_id = ?, payment_method_id = ?, contact_phone = ?, delivery_address = ?, order_total = ?, order_note = ? WHERE order_id = ?";
         int result = 0;
@@ -223,6 +235,7 @@ public class OrderDAO {
         }
         return result;
     }
+    
 
     public int cancelOrder(int orderID, Timestamp cancelTime) {
         String sql = "UPDATE [Order] SET order_status_id = ?, order_cancel_time = ? WHERE order_id = ?";
@@ -240,6 +253,7 @@ public class OrderDAO {
         return result;
     }
 
+    
     public String getPaymentMethod(byte paymentMethodID) {
         String paymentMethod = null;
         try {
@@ -268,8 +282,8 @@ public class OrderDAO {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return orderStatus;
-
     }
+    
 
     public ResultSet getOrderItems(Order order) {
         int cartID = order.getCartID();
@@ -284,6 +298,7 @@ public class OrderDAO {
         }
         return null;
     }
+    
 
     public List<String> getOrderItemsList(Order order) {
         ResultSet orderItemsRS = this.getOrderItems(order);
@@ -393,7 +408,8 @@ public class OrderDAO {
         try {
             conn.setAutoCommit(false); // Start transaction
             for (Integer orderID : orderIDs) {
-                if (updateOrderStatus(orderID) == 1) {
+                int update_status = updateOrderStatus(orderID);            
+                if ( update_status == 1) {              
                     result++; // Count number of successful status changes
                 } else {
                     conn.rollback(); // Rollback transaction if deletion fails

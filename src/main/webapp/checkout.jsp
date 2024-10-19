@@ -44,7 +44,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Món ăn/Đồ uống</th>
+                                        <th>Món hàng</th>
                                         <th>Đơn giá</th>
                                         <th>Số lượng</th>
                                         <th>Số tiền</th>
@@ -166,7 +166,7 @@
                                                     pattern="###,###"
                                                     value="${totalPrice * ((voucherpercent == 1) ? 1 : (1 - voucherpercent))}" />đ
                                 </h4>
-                                <button type="submit"  id=”btnSubmit” name="btnSubmit" value="SubmitOrder" class="btn btn-primary ms-3" onclick="return checkAndCompleteOrder();" >Đặt món</button>
+                                <button type="submit"  id=”btnSubmit” name="btnSubmit" value="SubmitOrder" class="btn btn-primary ms-3" onclick="return checkAndCompleteOrder();" >Đặt hàng</button>
                             </div>
                     </div>
                 </div>

@@ -120,6 +120,13 @@ public class Order {
         this.orderTotal = orderTotal;
     }
     
+    public Order(int orderID, int customerID, byte orderStatusID, BigDecimal orderTotal) {
+        this.orderID = orderID;
+        this.customerID = customerID;
+        this.orderStatusID = orderStatusID;
+        this.orderTotal = orderTotal;
+    }
+    
     public Order(int orderID, byte orderStatusID) {
         this.orderID = orderID;
         this.orderStatusID = orderStatusID; 

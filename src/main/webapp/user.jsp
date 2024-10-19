@@ -85,6 +85,12 @@
                         </div>
                       </div>
                       <div class="col">
+                        <div class="mb-3">
+                          <label for="txtPoint" class="form-label">Điểm tích lũy</label>
+                          <input type="tel" class="form-control" id="txtPoint" name="txtPoint"
+                                 value="${point.point} Point" required="" readonly="">
+                        </div>
+                          
                         <!-- Edit user contact information form -->
                         <div class="mb-3">
                           <label for="txtPhoneNumber" class="form-label">Số điện thoại</label>

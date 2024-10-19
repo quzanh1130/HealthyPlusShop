@@ -25,12 +25,14 @@ import DAOs.CartItemDAO;
 import DAOs.CustomerDAO;
 import DAOs.FoodDAO;
 import DAOs.OrderDAO;
+import DAOs.PointDAO;
 import DAOs.VoucherDAO;
 import Models.Account;
 import Models.Cart;
 import Models.CartItem;
 import Models.Customer;
 import Models.Order;
+import Models.Point;
 import Models.Voucher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -261,6 +263,21 @@ public class CheckoutController extends HttpServlet {
             }
         }
         
+        PointDAO pointDAO = new PointDAO();
+        Point point = pointDAO.getPoint(customerID);
+        float voucherPercent = 1.0f;
+        
+        if (point.getPoint() >= 50 && point.getPoint() < 100){
+            voucherPercent = 0.05f;
+        } else if (point.getPoint() >= 100 && point.getPoint() < 150) {
+            voucherPercent = 0.1f;
+        } else if (point.getPoint() >= 150 && point.getPoint() < 200) {
+            voucherPercent = 0.15f;
+        } else if (point.getPoint() >= 200) {
+            voucherPercent = 0.2f;
+        }
+        orderTotalDouble = orderTotalDouble * (voucherPercent == 1 ? 1 : 1 - voucherPercent);
+        
         BigDecimal orderTotal = BigDecimal.valueOf(orderTotalDouble);
         order.setOrderTotal(orderTotal);
         result = orderdao.add(order);
@@ -339,22 +356,22 @@ public class CheckoutController extends HttpServlet {
         HttpSession session = request.getSession();
 
         // Gets the current time in GMT+7
-        Instant instant = Instant.now();
-        ZonedDateTime zdt = instant.atZone(ZoneId.of("GMT+7"));
-        LocalDateTime currentTime = zdt.toLocalDateTime();
-        
-        // Gets the current hour in GMT+7
-        int hour = currentTime.getHour();
-        
-        if (hour >= 20 || hour <= 8) {
-          session.setAttribute("toastMessage", "error-close-time");
-          response.sendRedirect("/");
-          return;
-        } 
+//        Instant instant = Instant.now();
+//        ZonedDateTime zdt = instant.atZone(ZoneId.of("GMT+7"));
+//        LocalDateTime currentTime = zdt.toLocalDateTime();
+//        
+//        // Gets the current hour in GMT+7
+//        int hour = currentTime.getHour();
+//        
+//        if (hour >= 20 || hour <= 8) {
+//          session.setAttribute("toastMessage", "error-close-time");
+//          response.sendRedirect("/");
+//          return;
+//        } 
         
         String voucherStatus = "Vui lòng nhập mã giảm giá nếu bạn có";
-        request.setAttribute("voucherStatus", voucherStatus);
-        request.setAttribute("voucherpercent", 1.0);
+        float voucherPercent = 1.0f;
+        
         
         if (session.getAttribute("userID") != null) {
             int userID = (Integer) session.getAttribute("userID");
@@ -374,8 +391,29 @@ public class CheckoutController extends HttpServlet {
                 request.setAttribute("customer", customer);
                 //</editor-fold>
             }
-            //</editor-fold>
+            
+            PointDAO pointDAO = new PointDAO();
+            Point point = pointDAO.getPoint(currentAccount.getCustomerID());
+            
+            System.out.println("I can get Point bro " + currentAccount.getCustomerID());
+            
+            if (point.getPoint() >= 50 && point.getPoint() < 100){
+                voucherStatus = "Bạn được giảm 5% vì là thành viên đồng";
+                voucherPercent = 0.05f;
+            } else if (point.getPoint() >= 100 && point.getPoint() < 150) {
+                voucherStatus = "Bạn được giảm 5% vì là thành viên bạc";
+                voucherPercent = 0.1f;
+            } else if (point.getPoint() >= 150 && point.getPoint() < 200) {
+                voucherStatus = "Bạn được giảm 5% vì là thành viên vàng";
+                voucherPercent = 0.15f;
+            } else if (point.getPoint() >= 200) {
+                voucherStatus = "Bạn được giảm 5% vì là thành viên bạch kim";
+                voucherPercent = 0.2f;
+            }
         }
+        
+        request.setAttribute("voucherStatus", voucherStatus);
+        request.setAttribute("voucherpercent", voucherPercent);
 
         // Lưu trữ URL hiện tại vào session attribute
         session.setAttribute("previousUrl", request.getRequestURI());

@@ -128,7 +128,7 @@ public class SignUpController extends HttpServlet {
                             MimeMessage message = new MimeMessage(mailSession);
                             message.setFrom(new InternetAddress("your-email@example.com")); // Change accordingly
                             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-                            message.setSubject("Xác nhận Email của bạn");
+                            message.setSubject("[Healthy Plus] Xác nhận Email của bạn");
                             message.setContent("Mã OTP của bạn là: " + otpvalue + "<br />Để tránh mất tài khoản, đừng chia sẻ mã này cho bất cứ ai khác.", "text/html; charset=UTF-8");
 
                             // Send message

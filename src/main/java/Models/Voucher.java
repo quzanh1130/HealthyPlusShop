@@ -12,7 +12,7 @@ public class Voucher {
     private String voucher_name;
     private String voucher_code;
     private byte voucher_discount_percent;
-    private byte voucher_quantity;
+    private int voucher_quantity;
     private byte voucher_status;
     private Timestamp voucher_date;
    
@@ -30,7 +30,7 @@ public class Voucher {
         this.voucher_discount_percent = voucher_discount_percent;
     }
     
-    public Voucher(String voucher_name, String voucher_code, byte voucher_discount_percent, byte voucher_quantity, byte voucher_status, Timestamp voucher_date) {
+    public Voucher(String voucher_name, String voucher_code, byte voucher_discount_percent, int voucher_quantity, byte voucher_status, Timestamp voucher_date) {
         this.voucherID = voucherID;
         this.voucher_name = voucher_name;
         this.voucher_code = voucher_code;
@@ -40,7 +40,7 @@ public class Voucher {
         this.voucher_date = voucher_date;
     }
 
-    public Voucher(byte voucherID, String voucher_name, String voucher_code, byte voucher_discount_percent, byte voucher_quantity, byte voucher_status, Timestamp voucher_date) {
+    public Voucher(byte voucherID, String voucher_name, String voucher_code, byte voucher_discount_percent, int voucher_quantity, byte voucher_status, Timestamp voucher_date) {
         this.voucherID = voucherID;
         this.voucher_name = voucher_name;
         this.voucher_code = voucher_code;
@@ -74,11 +74,11 @@ public class Voucher {
         this.voucher_code = voucher_code;
     }
 
-    public byte getVoucher_quantity() {
+    public int getVoucher_quantity() {
         return voucher_quantity;
     }
 
-    public void setVoucher_quantity(byte voucher_quantity) {
+    public void setVoucher_quantity(int voucher_quantity) {
         this.voucher_quantity = voucher_quantity;
     }
 

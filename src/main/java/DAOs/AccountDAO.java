@@ -424,6 +424,23 @@ public class AccountDAO {
         }
         return null;
     }
+    
+    public String getEmail(int customer_id) {
+        String email = "";
+        try {
+            ps = conn.prepareStatement("select * from Account where customer_id = ?");
+            ps.setInt(1, customer_id);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                // Account is of User type (no adminID)
+                email = rs.getString("account_email");
+            }
+            return email;
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 
     public boolean login(Account acc) throws SQLException {
         rs = null;

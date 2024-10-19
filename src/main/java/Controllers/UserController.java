@@ -7,9 +7,11 @@ package Controllers;
 import DAOs.AccountDAO;
 import DAOs.CustomerDAO;
 import DAOs.OrderDAO;
+import DAOs.PointDAO;
 import Models.Account;
 import Models.Customer;
 import Models.Order;
+import Models.Point;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
@@ -187,8 +189,11 @@ public class UserController extends HttpServlet {
                 //<editor-fold defaultstate="collapsed" desc="Get customer info">
                 int customerID = currentAccount.getCustomerID();
                 CustomerDAO customerDAO = new CustomerDAO();
+                PointDAO pointDAO = new PointDAO();
                 Customer customer = customerDAO.getCustomer(customerID);
-
+                Point point = pointDAO.getPoint(customerID);
+                 
+                request.setAttribute("point", point);
                 request.setAttribute("customer", customer);
                 //</editor-fold>
 
