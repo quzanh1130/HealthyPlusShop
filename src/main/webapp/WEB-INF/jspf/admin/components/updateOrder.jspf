@@ -24,7 +24,6 @@
                         <label for="txtPaymentMethod" class="form-label">Hình thức thanh toán</label>
                         <select class="form-select" id="txtPaymentMethod" name="txtPaymentMethod" required>
                             <option value="COD">COD</option>
-                            <option value="Thẻ tín dụng">Thẻ tín dụng</option>
                         </select>
                     </div>
                     <div class="mb-3">

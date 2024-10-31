@@ -218,12 +218,12 @@ public class StaffController extends HttpServlet {
             orderStatusID = 4;
         }
 
-        byte paymentMethodID = 3;
-        if (paymentmethod.equals("Thẻ tín dụng")) {
-            paymentMethodID = 1;
-        } else if (paymentmethod.equals("Thẻ ghi nợ")) {
-            paymentMethodID = 2;
-        }
+        byte paymentMethodID = 1;
+//        if (paymentmethod.equals("Thẻ tín dụng")) {
+//            paymentMethodID = 1;
+//        } else if (paymentmethod.equals("Thẻ ghi nợ")) {
+//            paymentMethodID = 2;
+//        }
         OrderDAO orderDAO = new OrderDAO();
         Order order = new Order(orderID, orderStatusID, paymentMethodID, phonenumber, address, note, orderTotalPay);
 

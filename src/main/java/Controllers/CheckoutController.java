@@ -266,44 +266,48 @@ public class CheckoutController extends HttpServlet {
         PointDAO pointDAO = new PointDAO();
         Point point = pointDAO.getPoint(customerID);
         float voucherPercent = 1.0f;
-        
-        if (point.getPoint() >= 50 && point.getPoint() < 100){
-            voucherPercent = 0.05f;
-        } else if (point.getPoint() >= 100 && point.getPoint() < 150) {
-            voucherPercent = 0.1f;
-        } else if (point.getPoint() >= 150 && point.getPoint() < 200) {
-            voucherPercent = 0.15f;
-        } else if (point.getPoint() >= 200) {
-            voucherPercent = 0.2f;
+        if (point != null){
+            if (point.getPoint() >= 50 && point.getPoint() < 100){
+                voucherPercent = 0.05f;
+            } else if (point.getPoint() >= 100 && point.getPoint() < 150) {
+                voucherPercent = 0.1f;
+            } else if (point.getPoint() >= 150 && point.getPoint() < 200) {
+                voucherPercent = 0.15f;
+            } else if (point.getPoint() >= 200) {
+                voucherPercent = 0.2f;
+            }
         }
+     
         orderTotalDouble = orderTotalDouble * (voucherPercent == 1 ? 1 : 1 - voucherPercent);
         
         BigDecimal orderTotal = BigDecimal.valueOf(orderTotalDouble);
         order.setOrderTotal(orderTotal);
         result = orderdao.add(order);
+        System.out.println(result);
         if (result == 1) {
             // Xóa giỏ hàng từ session
             session.removeAttribute("cart");
 
-            if (paymentMethod == 3) {
+            if (paymentMethod == 1) {
                 session.setAttribute("toastMessage", "success-order");
                 response.sendRedirect("/");
-            }else if (paymentMethod == 1) {
-
-                // Tạo URL cho việc gọi API
-                String apiURL = "http://psql-server:8001/payment_from_cis?cis=" + customerID;
-
-                // Thực hiện HTTP request để lấy vnpay_payment_url
-                String vnpayPaymentURL = sendGetRequest(apiURL);
-
-                if (vnpayPaymentURL != null && !vnpayPaymentURL.isEmpty()) {
-                    response.sendRedirect(vnpayPaymentURL);
-                } else {
-                    // Xử lý trường hợp không lấy được vnpay_payment_url
-                    request.setAttribute("toastMessage", "error-order-vnpay");
-                    request.getRequestDispatcher("/checkout").forward(request, response);
-                }  
             }
+//            }else if (paymentMethod == 1) {
+//
+//                // Tạo URL cho việc gọi API
+//                String apiURL = "http://psql-server:8001/payment_from_cis?cis=" + customerID;
+//
+//                // Thực hiện HTTP request để lấy vnpay_payment_url
+//                String vnpayPaymentURL = sendGetRequest(apiURL);
+//
+//                if (vnpayPaymentURL != null && !vnpayPaymentURL.isEmpty()) {
+//                    response.sendRedirect(vnpayPaymentURL);
+//                } else {
+//                    // Xử lý trường hợp không lấy được vnpay_payment_url
+//                    request.setAttribute("toastMessage", "error-order-vnpay");
+//                    request.getRequestDispatcher("/checkout").forward(request, response);
+//                }  
+//            }
             
             for (CartItem item : cartItemList) {
                 Short foodID = item.getFood().getFoodID();

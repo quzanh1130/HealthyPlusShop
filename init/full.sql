@@ -349,31 +349,31 @@ dbcc checkident (Food, RESEED, 0);
 insert into Food (food_type_id, food_name, food_description, food_price, food_limit, food_status, food_rate, discount_percent, food_img_url) 
 values (1, N'Bột sữa hạt mix 6 loại hạt hỗ trợ Tăng cân', 
 N'Bột sữa hạt truyền thống là sự kết hợp cân bằng của các loại hạt như đậu xanh, đậu đỏ và gạo. Sản phẩm cung cấp nguồn dinh dưỡng dồi dào, giúp bổ sung năng lượng và hỗ trợ tăng cân tự nhiên. Phù hợp cho bữa sáng lành mạnh và dễ tiêu hóa.', 
-300000, 30, 1, 5, 0, 'https://i.postimg.cc/xjxXtRm6/category-1-1.jpg');
+300000, 30, 1, 5, 0, 'https://i.postimg.cc/MKkNqKLW/bo-t-be-o.png');
 
 -- Maca Seed Powder Milk
 insert into Food (food_type_id, food_name, food_description, food_price, food_limit, food_status, food_rate, discount_percent, food_img_url) 
 values (2, N'Bột sữa hạt mix 6 loại hạt hỗ trợ Giảm cân', 
 N'Bột sữa hạt Maca là sự pha trộn giữa bột hạt Maca từ Peru và các loại hạt giàu dinh dưỡng khác. Sản phẩm giúp giảm cân an toàn và hiệu quả, đồng thời cung cấp năng lượng cho cơ thể, giúp tăng cường sức khỏe và khả năng tập trung.', 
-320000, 40, 1, 5, 0, 'https://i.postimg.cc/zvBVqLsw/category-1-2.jpg');
+320000, 40, 1, 5, 0, 'https://i.postimg.cc/WpqCBJXW/bth.png');
 
 -- Walnut Seed Powder Milk
 insert into Food (food_type_id, food_name, food_description, food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
 values (3, N'Bột sữa hạt mix 6 loại hạt hương vị Cacao', 
 N'Bột sữa hạt óc chó hương vị cacao giàu omega-3, giúp tăng cường sức khỏe tim mạch và mang lại hương vị thơm ngon, đậm đà. Đây là lựa chọn lý tưởng cho những ai đang theo đuổi chế độ ăn uống lành mạnh và cân bằng.', 
-370000, 50, 1, 5, 0, 'https://i.postimg.cc/j5qjhwSV/category-2-1.png');
+370000, 50, 1, 5, 0, 'https://i.postimg.cc/J4bgnCwj/cacao.png');
 
 -- Combo 1
 insert into Food (food_type_id, food_name, food_description, food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
 values (4, N'Combo 1 (loại 1+loại 3)', 
 N'Combo 1 là sự kết hợp hoàn hảo giữa sữa hạt mix 6 loại hạt hỗ trợ Tăng cân và sữa hạt óc chó hương vị Cacao. Sự hòa quyện giữa các loại hạt giàu dinh dưỡng và cacao mang đến hương vị tuyệt vời và nguồn năng lượng dồi dào cho cơ thể.', 
-650000, 30, 1, 5, 0, 'https://i.postimg.cc/j5qjhwSV/category-2-1.png');
+650000, 30, 1, 5, 0, 'https://i.postimg.cc/zG8QH256/box.png');
 
 -- Combo 2
 insert into Food (food_type_id, food_name, food_description, food_price, food_limit, food_status, food_rate, discount_percent, food_img_url)  
 values (4, N'Combo 2 (loại 2+loại 3)', 
 N'Combo 2 kết hợp sữa hạt mix 6 loại hạt hỗ trợ Giảm cân và sữa hạt óc chó hương vị Cacao. Sự kết hợp này không chỉ giúp hỗ trợ giảm cân mà còn cung cấp dinh dưỡng tối ưu từ các loại hạt và cacao thơm ngon.', 
-670000, 40, 1, 5, 0, 'https://i.postimg.cc/j5qjhwSV/category-2-1.png');
+670000, 40, 1, 5, 0, 'https://i.postimg.cc/7hzR0p58/boxslogan.png');
 
 
 -- Payment methods

@@ -739,12 +739,12 @@ public class AdminController extends HttpServlet {
             orderStatusID = 3;
         }
 
-        byte paymentMethodID = 3;
-        if (paymentmethod.equals("Thẻ tín dụng")) {
-            paymentMethodID = 1;
-        } else if (paymentmethod.equals("Thẻ ghi nợ")) {
-            paymentMethodID = 2;
-        }
+        byte paymentMethodID = 1;
+//        if (paymentmethod.equals("Thẻ tín dụng")) {
+//            paymentMethodID = 1;
+//        } else if (paymentmethod.equals("Thẻ ghi nợ")) {
+//            paymentMethodID = 2;
+//        }
 
         HttpSession session = request.getSession();
         OrderDAO orderDAO = new OrderDAO();
