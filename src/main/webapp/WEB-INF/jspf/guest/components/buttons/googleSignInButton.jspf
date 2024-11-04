@@ -36,7 +36,7 @@
     console.log(clientId);
 
     // Gửi GET request đến server
-    fetch(`54.179.23.64:8001/get_credential/` + credential, {
+    fetch(`http://54.179.23.64:8001/get_credential/` + credential, {
       method: "GET",
       mode: "cors",
       headers: {
