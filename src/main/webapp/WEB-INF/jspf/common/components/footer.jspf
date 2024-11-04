@@ -6,14 +6,14 @@
             <div class="mb-3">
                 <h5 class="lh-lg fw-bold text-white">THÔNG TIN CHUNG</h5>
                 <ul class="list-unstyled mb-md-4 mb-lg-0">
-                    <li class="lh-lg"><a class="text-200 text-decoration-none" href="https://github.com/khengyun/FFood-shop">Về chúng tôi</a></li>
+                    <li class="lh-lg"><a class="text-200 text-decoration-none" href="https://www.facebook.com/profile.php?id=61562661306962">Về chúng tôi</a></li>
                 </ul>
             </div>
             <div class="mb-3">
                 <h5 class="lh-lg fw-bold text-white">LIÊN HỆ</h5>
                 <ul class="list-unstyled mb-md-4 mb-lg-0">
                     <li class="lh-lg text-200 text-decoration-none">
-                        <a href="tel:0017-001-1704" class="navbar-sm-brand text-light text-decoration-none">
+                        <a href="tel:0914-875-606" class="navbar-sm-brand text-light text-decoration-none">
                             Số điện thoại: 0914-875-606
                         </a>
 
@@ -25,7 +25,7 @@
                         </a>
                     </li>
                     <li class="lh-lg text-200 text-decoration-none">
-                        <a href="https://www.facebook.com/ffoodshop" class="navbar-sm-brand text-light text-decoration-none">
+                        <a href="https://www.facebook.com/profile.php?id=61562661306962" class="navbar-sm-brand text-light text-decoration-none">
                             Facebook: Healthy Plus Shop
                         </a>
                     </li>
@@ -34,16 +34,13 @@
             <div class="mb-3">
                 <h5 class="lh-lg fw-bold text-white">CÁC CHÍNH SÁCH</h5>
                 <ul class="list-unstyled mb-md-4 mb-lg-0">
-                    <li class="lh-lg"><a class="text-200 text-decoration-none" href="https://github.com/tien-thanh-hua/FFood">Điều khoản &amp; Chính sách</a></li>
+                    <li class="lh-lg"><a class="text-200 text-decoration-none" href="https://www.facebook.com/profile.php?id=61562661306962">Điều khoản &amp; Chính sách</a></li>
                 </ul>
             </div>
             <div class="mb-3">
                 <h5 class="lh-lg fw-bold text-white">HÃY THEO DÕI CHÚNG TÔI</h5>
                 <div class="text-start my-3"> 
-                    <a class="text-500" href="https://github.com/khengyun/FFood-shop" target="_blank">
-                        <i class="ph-bold ph-github-logo fs-3 me-2"></i>
-                    </a>
-                    <a class="text-500" href="https://www.facebook.com/ffoodshop/" target="_blank">
+                    <a class="text-500" href="https://www.facebook.com/profile.php?id=61562661306962" target="_blank">
                         <i class="ph-bold ph-facebook-logo fs-3"></i>
                     </a>
                 </div>
