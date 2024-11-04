@@ -110,7 +110,7 @@
 
     async function predict_to_popup(imageBase64) {
       try {
-        const response = await fetch("http://localhost:8000/predict_dish", {
+        const response = await fetch("https://healthyplus.store:8000/predict_dish", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -128,7 +128,7 @@
         console.log("Predicted Dish:", data.predicted_dish[0][0]);
 
         if (data.predicted_dish) {
-          const searchURL = "http://localhost:8001/search_food_by_name/" + data.predicted_dish[0][0];
+          const searchURL = "https://healthyplus.store:8001/search_food_by_name/" + data.predicted_dish[0][0];
 
           const searchResponse = await fetch(searchURL);
 

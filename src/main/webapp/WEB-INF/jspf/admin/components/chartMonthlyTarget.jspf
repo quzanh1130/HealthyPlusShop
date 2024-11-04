@@ -11,7 +11,7 @@
     const monthlyTarget = 50000000;
 
     // Fetch the current revenue from the server
-    fetch('http://localhost:8001/get_today_income')
+    fetch('https://healthyplus.store:8001/get_today_income')
       .then(response => response.json())
       .then(data => {
         // Use the received data to set the current revenue

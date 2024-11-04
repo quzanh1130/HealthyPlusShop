@@ -240,7 +240,7 @@ public class OrderDAO {
     public int cancelOrder(int orderID, Timestamp cancelTime) {
         String sql = "UPDATE [Order] SET order_status_id = ?, order_cancel_time = ? WHERE order_id = ?";
         int result = 0;
-        byte order_status = 5;
+        byte order_status = 4;
         try {
             ps = conn.prepareStatement(sql);
             ps.setByte(1, order_status);

@@ -8,7 +8,7 @@
     const weeklyRevenueChart = document.getElementById("chart-revenue-by-day");
 
     // Fetch data from the server
-    fetch("http://localhost:8001/get_daily_sales")
+    fetch("https://healthyplus.store:8001/get_daily_sales")
       .then((response) => response.json())
       .then((data) => {
         // Reverse the daily_revenue array to display older dates first

@@ -27,7 +27,7 @@
 
   <script>
     // Tạo một yêu cầu HTTP đến API
-    fetch("http://localhost:8001/get_daily_revenue")
+    fetch("https://healthyplus.store:8001/get_daily_revenue")
       .then(function (response) {
         return response.json(); // Chuyển đổi phản hồi thành đối tượng JSON
       })

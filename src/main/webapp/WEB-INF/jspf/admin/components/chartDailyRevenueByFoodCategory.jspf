@@ -8,7 +8,7 @@
   const chart = document.getElementById("chart-revenue-by-food-category");
 
   // Fetch data from the API
-  fetch("http://localhost:8001/get_top_selling_foods")
+  fetch("https://healthyplus.store:8001/get_top_selling_foods")
     .then((response) => response.json())
     .then((data) => {
       const categories = data.map((food) => food.name);
