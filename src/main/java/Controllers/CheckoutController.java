@@ -359,7 +359,7 @@ public class CheckoutController extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-        // Gets the current time in GMT+7
+//         Gets the current time in GMT+7
 //        Instant instant = Instant.now();
 //        ZonedDateTime zdt = instant.atZone(ZoneId.of("GMT+7"));
 //        LocalDateTime currentTime = zdt.toLocalDateTime();
@@ -399,21 +399,21 @@ public class CheckoutController extends HttpServlet {
             PointDAO pointDAO = new PointDAO();
             Point point = pointDAO.getPoint(currentAccount.getCustomerID());
             
-            System.out.println("I can get Point bro " + currentAccount.getCustomerID());
-            
-            if (point.getPoint() >= 50 && point.getPoint() < 100){
+            if (point != null){
+                if (point.getPoint() >= 50 && point.getPoint() < 100){
                 voucherStatus = "Bạn được giảm 5% vì là thành viên đồng";
                 voucherPercent = 0.05f;
-            } else if (point.getPoint() >= 100 && point.getPoint() < 150) {
-                voucherStatus = "Bạn được giảm 5% vì là thành viên bạc";
-                voucherPercent = 0.1f;
-            } else if (point.getPoint() >= 150 && point.getPoint() < 200) {
-                voucherStatus = "Bạn được giảm 5% vì là thành viên vàng";
-                voucherPercent = 0.15f;
-            } else if (point.getPoint() >= 200) {
-                voucherStatus = "Bạn được giảm 5% vì là thành viên bạch kim";
-                voucherPercent = 0.2f;
-            }
+                } else if (point.getPoint() >= 100 && point.getPoint() < 150) {
+                    voucherStatus = "Bạn được giảm 5% vì là thành viên bạc";
+                    voucherPercent = 0.1f;
+                } else if (point.getPoint() >= 150 && point.getPoint() < 200) {
+                    voucherStatus = "Bạn được giảm 5% vì là thành viên vàng";
+                    voucherPercent = 0.15f;
+                } else if (point.getPoint() >= 200) {
+                    voucherStatus = "Bạn được giảm 5% vì là thành viên bạch kim";
+                    voucherPercent = 0.2f;
+                }
+            } 
         }
         
         request.setAttribute("voucherStatus", voucherStatus);

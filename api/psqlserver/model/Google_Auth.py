@@ -9,6 +9,8 @@ from config import CLIENT_ID,db_config
 import pymssql
 import hashlib
 
+
+
 class GoogleAuth:
     def __init__(self):
         self.client_id = CLIENT_ID

@@ -6,4 +6,4 @@ db_config = {
     'database': 'ffood'
 }
 
-CLIENT_ID = '878924649175-qs2bdc6eq08cfq344o6uft06hm22nrho.apps.googleusercontent.com'
+CLIENT_ID = '463235690777-skpgmf10pu9h88l6ummv57l1pn1sg23b.apps.googleusercontent.com'
