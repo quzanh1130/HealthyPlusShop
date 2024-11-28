@@ -3,34 +3,8 @@
   <a src="https://github.com/khengyun/FFood-shop">
 <img src="https://github.com/khengyun/FFood-shop/blob/29835c240b656bb24c1ae445327bce14930dfbf8/src/main/webapp/assets/img/favicons/apple-touch-icon.png?raw=true" width="100" />
   </a>
-<br>FFOOD-SHOP</h1>
-<h3> FFood is a food e-commerce site that lets customers order food in a quick and convenient way.</h3>
-<h3>◦ Developed with the software and tools below. ◦</h3>
-
-<p align="center">
-<img src="https://img.shields.io/badge/GNU%20Bash-4EAA25.svg?style=flat-square&logo=GNU-Bash&logoColor=white" alt="GNU%20Bash" />
-<img src="https://img.shields.io/badge/Grunt-FAA918.svg?style=flat-square&logo=Grunt&logoColor=white" alt="Grunt" />
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=flat-square&logo=JavaScript&logoColor=black" alt="JavaScript" />
-<img src="https://img.shields.io/badge/scikitlearn-F7931E.svg?style=flat-square&logo=scikit-learn&logoColor=white" alt="scikitlearn" />
-<img src="https://img.shields.io/badge/HTML5-E34F26.svg?style=flat-square&logo=HTML5&logoColor=white" alt="HTML5" />
-<img src="https://img.shields.io/badge/YAML-CB171E.svg?style=flat-square&logo=YAML&logoColor=white" alt="YAML" />
-<img src="https://img.shields.io/badge/PHP-777BB4.svg?style=flat-square&logo=PHP&logoColor=white" alt="PHP" />
-<img src="https://img.shields.io/badge/Python-3776AB.svg?style=flat-square&logo=Python&logoColor=white" alt="Python" />
-
-<img src="https://img.shields.io/badge/Docker-2496ED.svg?style=flat-square&logo=Docker&logoColor=white" alt="Docker" />
-<img src="https://img.shields.io/badge/jQuery-0769AD.svg?style=flat-square&logo=jQuery&logoColor=white" alt="jQuery" />
-<img src="https://img.shields.io/badge/NumPy-013243.svg?style=flat-square&logo=NumPy&logoColor=white" alt="NumPy" />
-<img src="https://img.shields.io/badge/FastAPI-009688.svg?style=flat-square&logo=FastAPI&logoColor=white" alt="FastAPI" />
-<img src="https://img.shields.io/badge/JSON-000000.svg?style=flat-square&logo=JSON&logoColor=white" alt="JSON" />
-<img src="https://img.shields.io/badge/Wikipedia-000000.svg?style=flat-square&logo=Wikipedia&logoColor=white" alt="Wikipedia" />
-<img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=flat-square&logo=openjdk&logoColor=white" alt="java" />
-</p>
-<img src="https://img.shields.io/github/license/khengyun/FFood-shop?style=flat-square&color=5D6D7E" alt="GitHub license" />
-<img src="https://img.shields.io/github/last-commit/khengyun/FFood-shop?style=flat-square&color=5D6D7E" alt="git-last-commit" />
-<img src="https://img.shields.io/github/commit-activity/m/khengyun/FFood-shop?style=flat-square&color=5D6D7E" alt="GitHub commit activity" />
-<img src="https://img.shields.io/github/languages/top/khengyun/FFood-shop?style=flat-square&color=5D6D7E" alt="GitHub top language" />
-</div>
-
+<br>HEALTHY PLUS STORE</h1>
+<h3> Healthy plus store is a seed milk e-commerce site that lets customers order seed milk in a quick and convenient way.</h3>
   
 
 ## Project ScreenShots:
@@ -46,7 +20,7 @@
 
 ## Introduction
 
-FFood is a food website that lets customers order food in a quick and convenient way.
+Healthy plus is an order website that lets customers order seed milk in a quick and convenient way.
 
 ## Features
 
@@ -56,12 +30,9 @@ FFood is a food website that lets customers order food in a quick and convenient
 - Log in as Employee (Admin, Staff, Promotion Manager)
 - Log out.
 - View Website information (contact information, location).
-- View Food by Categories.
-- View Food Details.
-- Rate Food.
-- Chat bot
+- View item by Categories.
+- View item Details.
 - Search Food by keyword.
-- Search Food by image.
 - User cart Management.
 - Payment option.
 - Place order as Guest.
@@ -73,7 +44,7 @@ FFood is a food website that lets customers order food in a quick and convenient
 - Display today’s system status.
 - View Dashboard.
 - View Business Insight.
-- Food Management.
+- Item Management.
 - Order Management.
 - Promotion and Voucher Management.
 - User account Management for Admins.
@@ -112,7 +83,7 @@ FFood is a food website that lets customers order food in a quick and convenient
 >docker compose up --build
 >```
 
-Now, FFood running locally on your machine at: http://localhost:8080
+Now, HealthyPlus running locally on your machine at: http://localhost:8080
 
 ## License
 
